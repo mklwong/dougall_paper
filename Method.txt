@@ -1,0 +1,22 @@
+<Insert base model struction>
+
+The reaction kinetics used in the models are mass action kinetics for unimolecular (dissociation or dephosphorylation), bimolecular (association) and some kinase reactions (kinase reactions in blue). dQSSA kinetics are used for Akt phosphorylation reactions (kinase reactions in red) [cite my modelling paper]. Species concentrations are set relative to Insulin concentration. Kinetic parameters and free species concentrations are set as free variables to be fitted to the experimental data. The model also includes compartmentalisation, with compartment sizes set relative to the cytosol, the extracellular matrix volume assumed to be infinite and plasma membrane volume set as a free parameter.
+
+The Base Pathway Model is based on the pathway shown in fig X. Parameter fitting of this model was performed using Markov Chain Monte Carlo. The base model was fitted to the following datasets after the simulated data is scaled to have the same mean as the experimental data:
+- PIP3 formation was fitted to TIRF data of Akt recruitment to the membrane with a weight of 2000.
+- Akt 308 phosphorylation was fitted to western blot data of Akt with a 308 antibody with a weight of 1.
+- Akt 473 phosphorylation was fitted to western blot data of Akt with a 473 antibody
+- Akt substrate phosphorylation was fitted to the mean of western blot data with a weight of 0.02 of:
+	- AS160
+	- PRAS40
+	- GSK3
+	- FOXO1
+Weighting was chosen to ensure the most critical parts of the pathway are fitted most optimally while the giving the fitting algorithm enough flexibility to ultimately optimise for all target criteria.
+
+From the Base Pathway model, the speed of the pTSC2 and mTORC1 reactions were manually altered to match the simulated pTSC2 kinetics with pPRAS40 kinetics, producing the TSC2 Fitted Model.
+
+The Akt to IR enzymatic negative feedback mechanism was then introduced using mass action kinetics to produce the Negative Feedback Model. The new parameters were then left as free parameters, fixing all other parameters to the values they held in the TSC2 Fitted Model. The Negative Feedback Model is then fitted to the following dataset after rescaling to match the means of the simulation and experimental data:
+- PIP3 formation was fitted to TIRF data of Akt recruitment to the membrane
+- Akt 308 phosphorylation was fitted to western blot data of Akt with a 308 antibody
+- Akt 473 phosphorylation was fitted to western blot data of Akt with a 473 antibody
+Akt substrate was not explicitedly fitted because the free parameters do not impact substrate kinetics except for its impact through Akt kinetics.

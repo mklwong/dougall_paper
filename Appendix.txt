@@ -1,27 +1,29 @@
 Model Setup
 
-Mathematical formula: as per tQSSA paper.
+Mathematical formula: as per dQSSA paper.
+
+All Akt components are modelled with dQSSA kinetics while remaining kinase activity (PIP3 formation, TSC2 and mTORC1 phosphorylation) are modelled with mass action kinetics (which assumes negligible volumes of enzyme-subtrate complex relative to dissociated species of both enzyme and substrate).
 
 Base Model: 
 
 Species index        
 i  | Species         | Initial Concentration | Compartment (relative size)
 ---------------------|-----------------------|------------
-1  | PIP2            | 1450.79900            | PM (0.08)
-2  | PIP3            |    0.00000            | PM (0.08)
+1  | PIP2            | 1450.79900            | PM (0.0868245978)
+2  | PIP3            |    0.00000            | PM (0.0868245978)
 3  | AKT             |  607.26343            | Cytosol (1)
-4  | mAKT            |    0.00000            | PM (0.08)
-5  | p308mAKT        |    0.00000            | PM (0.08)
-6  | p473mAKT        |    0.00000            | PM (0.08)
-7  | p308p473mAKT    |    0.00000            | PM (0.08)
+4  | mAKT            |    0.00000            | PM (0.0868245978)
+5  | p308mAKT        |    0.00000            | PM (0.0868245978)
+6  | p473mAKT        |    0.00000            | PM (0.0868245978)
+7  | p308p473mAKT    |    0.00000            | PM (0.0868245978)
 8  | p308AKT         |    0.00000            | Cytosol (1)
 9  | p473AKT         |    0.00000            | Cytosol (1)
 10 | p308p473AKT     |    0.00000            | Cytosol (1)
-11 | mTORC2          |    0.31192            | PM (0.08)
-12 | PDK1            |    2.77561            | PM (0.08)
-13 | IR              |    3.59393            | PM (0.08)
-14 | pIR             |    0.00000            | PM (0.08)
-15 | piIR            |    0.00000            | PM (0.08)
+11 | mTORC2          |    0.31192            | PM (0.0868245978)
+12 | PDK1            |    2.77561            | PM (0.0868245978)
+13 | IR              |    3.59393            | PM (0.0868245978)
+14 | pIR             |    0.00000            | PM (0.0868245978)
+15 | piIR            |    0.00000            | PM (0.0868245978)
 16 | AKTSub          |   20.83131            | Cytosol (1)
 17 | pAKTSub         |    0.00000            | Cytosol (1)
 18 | TSC2            |    3.03503            | Cytosol (1)
@@ -29,10 +31,10 @@ i  | Species         | Initial Concentration | Compartment (relative size)
 20 | mTORC1          |    9.49839            | Cytosol (1)
 21 | pimTORC1        |    0.00000            | Cytosol (1)
 22 | Insulin         |    0.00000            | ECM (inf)
-23 | mAKT-PDK1       |    0.00000            | PM (0.08)
-24 | p473mAKT-PDK1   |    0.00000            | PM (0.08)
-25 | mAKT-mTORC2     |    0.00000            | PM (0.08)
-26 | p308mAKT-mTORC2 |    0.00000            | PM (0.08)
+23 | mAKT-PDK1       |    0.00000            | PM (0.0868245978)
+24 | p473mAKT-PDK1   |    0.00000            | PM (0.0868245978)
+25 | mAKT-mTORC2     |    0.00000            | PM (0.0868245978)
+26 | p308mAKT-mTORC2 |    0.00000            | PM (0.0868245978)
 
 G Matrix
 
